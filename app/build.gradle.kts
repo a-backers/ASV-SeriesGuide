@@ -167,7 +167,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.6.0")
     implementation("androidx.annotation:annotation:$annotationVersion")
     // https://developer.android.com/jetpack/androidx/releases/appcompat
-    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("androidx.appcompat:appcompat:1.3.0")
     // https://developer.android.com/jetpack/androidx/releases/browser
     implementation("androidx.browser:browser:1.4.0")
     implementation("androidx.fragment:fragment-ktx:$fragmentVersion")
