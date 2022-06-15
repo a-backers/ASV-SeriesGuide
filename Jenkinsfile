@@ -5,12 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'build has started'
-                sh "./gradlew clean build"
             }
         }
         stage('Test') {
             steps {
-                sh "./gradlew clean test --refresh-dependencies"
+                echo 'test'
             }
         }
         stage('Deploy') {
