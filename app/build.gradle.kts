@@ -164,7 +164,7 @@ dependencies {
     implementation(project(":billing"))
     implementation(project(":widgets"))
 
-    implementation("androidx.core:core-ktx:$coreVersion")
+    implementation("androidx.core:core-ktx:1.6.0")
     implementation("androidx.annotation:annotation:$annotationVersion")
     // https://developer.android.com/jetpack/androidx/releases/appcompat
     implementation("androidx.appcompat:appcompat:1.4.1")
