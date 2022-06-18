@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building....'
-                bat "gradlew build"
+                bat "gradlew build --refresh-dependencies"
             }
         }
         stage('Test') {
