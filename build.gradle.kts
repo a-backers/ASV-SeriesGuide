@@ -19,7 +19,7 @@ buildscript {
     val coroutinesVersion by extra("1.6.0") // https://github.com/Kotlin/kotlinx.coroutines/blob/master/CHANGES.md
 
     // https://developer.android.com/jetpack/androidx/releases
-    val coreVersion by extra("1.7.0") // https://developer.android.com/jetpack/androidx/releases/core
+    val coreVersion by extra("1.6.0") // https://developer.android.com/jetpack/androidx/releases/core
     val annotationVersion by extra("1.3.0")
     val lifecycleVersion by extra("2.4.0")
     val roomVersion by extra("2.4.1") // https://developer.android.com/jetpack/androidx/releases/room
