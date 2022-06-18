@@ -9,13 +9,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building....'
-                bat "build"
+                bat "set"
             }
         }
         stage('Test') {
             steps {
                 echo 'test'
-                bat "./gradlew clean build"
+                bat "set"
             }
         }
         stage('Deploy') {
