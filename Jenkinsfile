@@ -7,11 +7,15 @@ pipeline {
 
     stages {
         stage('Build') {
-            sh "./gradlew clean build"
+            steps {
+                echo 'building....'
+                sh "build"
+            }
         }
         stage('Test') {
             steps {
                 echo 'test'
+                sh "./gradlew clean build"
             }
         }
         stage('Deploy') {
