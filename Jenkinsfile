@@ -3,6 +3,7 @@ pipeline {
 
     environment {
             ANDROID_SDK_ROOT = '/var/jenkins_home/tools/android-sdk'
+            JAVA_HOME = 'C:\Program Files\Java\jdk1.8.0_291'
         }
 
     stages {
