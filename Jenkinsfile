@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-            AANDROID_SDK_ROOT = 'c:\\users\\Administrator\\AppData\\Local\\Android\\Sdk'
+            ANDROID_SDK_ROOT = 'c:\\users\\Administrator\\AppData\\Local\\Android\\Sdk'
             JAVA_HOME = 'c:\\Program Files\\Java\\jdk-11.0.15'
         }
 
