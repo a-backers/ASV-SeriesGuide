@@ -8,9 +8,9 @@ plugins {
     id("com.google.cloud.tools.endpoints-framework-client")
 }
 
-if (project.file("google-services.json").exists()) {
+//if (project.file("google-services.json").exists()) {
     apply(plugin = "com.google.gms.google-services")
-}
+//}
 // Note: need to apply Crashlytics after Google services plugin,
 // above conditional apply doesn't work inside plugins block.
 apply(plugin = "com.google.firebase.crashlytics")
