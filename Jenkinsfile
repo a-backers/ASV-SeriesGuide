@@ -19,6 +19,9 @@ pipeline {
                 echo 'test'
                 bat "set"
                 bat "gradlew api:test"
+                bat "gradlew billing:test"
+                bat "widgets:test"
+                bat "app:test"
             }
         }
         
