@@ -18,6 +18,7 @@ pipeline {
             steps {
                 echo 'test'
                 bat "set"
+                bat "gradlew api:test"
             }
         }
         
