@@ -46,6 +46,7 @@ buildscript {
         // https://firebase.google.com/support/release-notes/android
         classpath("com.google.gms:google-services:4.3.10")
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.8.1")
+        // Code Coverage with JaCoCo
     }
 }
 
