@@ -20,8 +20,8 @@ pipeline {
                 bat "set"
                 bat "gradlew api:test"
                 bat "gradlew billing:test"
-                bat "widgets:test"
-                bat "app:test"
+                bat "gradlew widgets:test"
+                bat "gradlew app:test"
             }
         }
         
