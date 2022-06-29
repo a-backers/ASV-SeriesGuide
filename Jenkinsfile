@@ -18,10 +18,7 @@ pipeline {
             steps {
                 echo 'test'
                 bat "set"
-                bat "gradlew api:test"
-                bat "gradlew billing:test"
-                bat "gradlew widgets:test"
-                bat "gradlew app:test"
+                bat gradlew app:testAmazonDebugUnitTest
             }
         }
         
