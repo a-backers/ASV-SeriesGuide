@@ -14,11 +14,18 @@ pipeline {
                 bat "gradlew widgets:clean billing:clean api:clean app:clean widgets:assembleDebug api:assembleDebug billing:assembleDebug app:assembleAmazonDebug"
             }
         }
+        stage('Test build') {
+            steps {
+                echo 'test Build'
+                bat "set"
+                bat "gradlew app:assembleAndroidTest"
+            }
+        }
+        
         stage('Test') {
             steps {
                 echo 'test'
-                bat "set"
-                bat gradlew app:testAmazonDebugUnitTest
+                bat "gradlew app:testPureDebugUnitTest"
             }
         }
         
