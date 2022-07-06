@@ -42,15 +42,12 @@ pipeline {
         stage('Test Coverage') {
             steps {
                 junit '*/build/test-results/testPureDebugUnitTest/*.xml'
-                //step( [ $class: 'JacocoPublisher',
-                //       execPattern: '**/build/jacoco/**.exec'
-                //] )
                 jacoco(
                     execPattern: '**/build/jacoco/**.exec'
                 )
-                step( publishCoverage(
-                    adapters: [jacocoAdapter('*/build/reports/jacoco/test/jacocoTestReport.xml')] )
-                )
+//                step( publishCoverage(
+//                    adapters: [jacocoAdapter('*/build/reports/jacoco/test/jacocoTestReport.xml')] )
+//                )
             }
         }
         
