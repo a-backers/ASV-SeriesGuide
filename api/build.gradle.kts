@@ -3,6 +3,7 @@ plugins {
     id("maven-publish")
     id("signing")
     id("jacoco")
+    id("org.sonarqube")
 }
 
 group = "com.uwetrottmann.seriesguide"
