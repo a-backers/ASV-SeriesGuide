@@ -66,6 +66,14 @@ tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
     }
 }
 
+tasks.withType<JacocoReport> {
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.required.set(true)
+    }
+}
+
 nexusPublishing {
     packageGroup.set("com.uwetrottmann")
     repositories {
@@ -91,4 +99,5 @@ tasks.wrapper {
 
 jacoco {
     toolVersion = "0.8.6"
+    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/")
 }
