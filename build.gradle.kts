@@ -7,6 +7,7 @@ plugins {
     
     // Coverage
     jacoco
+    org.sonarqube
 }
 
 buildscript {
@@ -87,4 +88,10 @@ tasks.register("clean", Delete::class) {
 tasks.wrapper {
     //noinspection UnnecessaryQualifiedReference
     distributionType = Wrapper.DistributionType.ALL
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
 }
