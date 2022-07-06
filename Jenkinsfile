@@ -30,6 +30,14 @@ pipeline {
             }
         }
         
+        stage('Test Coverage') {
+            steps {
+                step( [ $class: 'JacocoPublisher',
+                       execPattern '**/build/jacoco/**.exec'
+                ] )
+            }
+        }
+        
         stage('SonarQube Analysis') {
         environment {
             SONARSCANNER_HOME = tool 'SonarQube_local'
