@@ -10,8 +10,8 @@ pipeline {
     stages {
         stage('Build Debug') {
             steps {
-            //    echo 'Cleaning....'
-            //    bat "gradlew widgets:clean billing:clean api:clean app:clean"
+                echo 'Cleaning....'
+                bat "gradlew widgets:clean billing:clean api:clean app:clean"
                 echo 'Building....'
                 bat "gradlew widgets:assembleDebug api:assembleDebug billing:assembleDebug app:assemblePureDebug"
             }
