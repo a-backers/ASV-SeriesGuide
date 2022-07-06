@@ -99,5 +99,5 @@ tasks.wrapper {
 
 jacoco {
     toolVersion = "0.8.6"
-    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/")
+    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
 }
