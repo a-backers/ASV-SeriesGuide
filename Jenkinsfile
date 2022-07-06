@@ -32,7 +32,7 @@ pipeline {
         
         stage('Test Coverage') {
             steps {
-                junit '*/build/test-results/*.xml'
+                junit '*/build/test-results/**.xml'
                 //step( [ $class: 'JacocoPublisher',
                 //       execPattern: '**/build/jacoco/**.exec'
                 //] )
