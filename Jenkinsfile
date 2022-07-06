@@ -62,6 +62,8 @@ pipeline {
                     bat "${SONARSCANNER_HOME}/bin/sonar-scanner \
                     -D sonar.projectKey=sonarqube_school_test \
                     -D sonar.java.binaries=** \
+                    -D sonar.jacoco.reportPaths=${project.buildDir}/jacoco/**.exec \
+                    -D sonar.junit.reportsPath=${project.buildDir}/test-results/testPureDebugUnitTest \
                     -D sonar.host.url=http://10.168.10.52:9000/"
                 }
             }
