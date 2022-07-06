@@ -6,7 +6,7 @@ plugins {
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0" // api
     
     // Coverage
-    jacoco
+    id("jacoco")
 }
 
 buildscript {
@@ -87,4 +87,8 @@ tasks.register("clean", Delete::class) {
 tasks.wrapper {
     //noinspection UnnecessaryQualifiedReference
     distributionType = Wrapper.DistributionType.ALL
+}
+
+jacoco {
+    toolVersion = "0.8.6"
 }
