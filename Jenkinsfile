@@ -8,18 +8,27 @@ pipeline {
         }
 
     stages {
-        stage('Build') {
+        stage('Build Debug') {
             steps {
-                echo 'building....'
-                bat "gradlew widgets:clean billing:clean api:clean app:clean widgets:assembleDebug api:assembleDebug billing:assembleDebug app:assemblePureDebug"
+                echo 'Cleaning....'
+                bat "gradlew widgets:clean billing:clean api:clean app:clean"
+                echo 'Building....'
+                bat "gradlew widgets:assembleDebug api:assembleDebug billing:assembleDebug app:assemblePureDebug"
             }
         }
-        stage('Test build') {
+        stage('Build Test') {
             steps {
-                echo 'Test Build with Coverage'
+                echo 'Build Test with Coverage'
                 bat "set"
                 // bat "gradlew app:assembleAndroidTest"
-                bat "gradlew widgets:generateDebugSources widgets:createMockableJar widgets:generateDebugAndroidTestSources widgets:compileDebugUnitTestSources widgets:compileDebugAndroidTestSources widgets:compileDebugSources billing:generateDebugSources billing:createMockableJar billing:generateDebugAndroidTestSources billing:compileDebugUnitTestSources billing:compileDebugAndroidTestSources billing:compileDebugSources app:generatePureDebugSources app:createMockableJar app:generatePureDebugAndroidTestSources app:compilePureDebugUnitTestSources app:compilePureDebugAndroidTestSources app:compilePureDebugSources api:generateDebugSources api:createMockableJar api:generateDebugAndroidTestSources api:compileDebugUnitTestSources api:compileDebugAndroidTestSources api:compileDebugSources"
+                bat "gradlew widgets:generateDebugSources widgets:createMockableJar widgets:generateDebugAndroidTestSources +
+                     widgets:compileDebugUnitTestSources widgets:compileDebugAndroidTestSources widgets:compileDebugSources +
+                     billing:generateDebugSources billing:createMockableJar billing:generateDebugAndroidTestSources +
+                     billing:compileDebugUnitTestSources billing:compileDebugAndroidTestSources billing:compileDebugSources +
+                     app:generatePureDebugSources app:createMockableJar app:generatePureDebugAndroidTestSources +
+                     app:compilePureDebugUnitTestSources app:compilePureDebugAndroidTestSources app:compilePureDebugSources +
+                     api:generateDebugSources api:createMockableJar api:generateDebugAndroidTestSources +
+                     api:compileDebugUnitTestSources api:compileDebugAndroidTestSources api:compileDebugSources"
             }
         }
         
