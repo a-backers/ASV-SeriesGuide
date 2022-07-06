@@ -7,7 +7,6 @@ plugins {
     id("kotlin-kapt")
     id("com.google.cloud.tools.endpoints-framework-client")
     id("jacoco")
-    id("org.sonarqube")
 }
 
 if (project.file("google-services.json").exists()) {
