@@ -48,8 +48,9 @@ pipeline {
                 jacoco(
                     execPattern: '**/build/jacoco/**.exec'
                 )
-                publishCoverage
+                step( publishCoverage
                     adapters: [jacocoAdapter('build/reports/jacoco/test/jacocoTestReport.xml')]
+                )
             }
         }
         
