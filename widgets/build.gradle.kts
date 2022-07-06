@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("jacoco")
+    id("org.sonarqube")
 }
 
 val sgCompileSdk: Int by rootProject.extra
