@@ -32,8 +32,8 @@ pipeline {
         
         stage('Test Coverage') {
             steps {
-                step( [ $class: 'JacocoPublisher',
-                       execPattern '**/build/jacoco/**.exec'
+                step( [ $class: 'JacocoPublisher', \
+                       execPattern '**/build/jacoco/**.exec' \
                 ] )
             }
         }
