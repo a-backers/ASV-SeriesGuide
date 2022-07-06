@@ -7,7 +7,6 @@ plugins {
     
     // Coverage
     jacoco
-    sonarqube
 }
 
 buildscript {
