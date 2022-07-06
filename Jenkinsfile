@@ -10,8 +10,8 @@ pipeline {
     stages {
         stage('Build Debug') {
             steps {
-                echo 'Cleaning....'
-                bat "gradlew widgets:clean billing:clean api:clean app:clean"
+            //    echo 'Cleaning....'
+            //    bat "gradlew widgets:clean billing:clean api:clean app:clean"
                 echo 'Building....'
                 bat "gradlew widgets:assembleDebug api:assembleDebug billing:assembleDebug app:assemblePureDebug"
             }
@@ -41,7 +41,8 @@ pipeline {
         
         stage('Test Coverage') {
             steps {
-                junit '*/build/test-results/**.xml'
+                //  testPureDebugUnitTest
+                junit '**/build/test-results/**.xml'
                 //step( [ $class: 'JacocoPublisher',
                 //       execPattern: '**/build/jacoco/**.exec'
                 //] )
