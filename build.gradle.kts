@@ -99,6 +99,9 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
+tasks.jacocoTestReport {
+}
+
 //jacocoTestReport {
 //    reports {
 //        xml.required = true
