@@ -4,7 +4,6 @@ plugins {
     id("com.github.ben-manes.versions") version "0.42.0"
     // https://github.com/gradle-nexus/publish-plugin/releases
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0" // api
-    
     // Coverage in kotlin dsl style
     jacoco
     id("org.sonarqube") version "3.4.0.2513"
@@ -71,7 +70,7 @@ tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
     }
 }
 
-tasks.withType<JacocoReport> {
+tasks.withType<jacocoReport> {
     reports {
         xml.required.set(true)
         csv.required.set(false)
@@ -105,5 +104,5 @@ tasks.wrapper {
 
 jacoco {
     toolVersion = "0.8.7"
-    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
+//    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
 }
