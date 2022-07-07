@@ -2,7 +2,7 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
-//        mavenCentral()
+        mavenCentral()
         jcenter()
     }
 }
@@ -12,7 +12,7 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
-//        mavenCentral()
+        mavenCentral()
         jcenter()
         // For debugdrawer and sonarqube
         maven { url = uri("https://jitpack.io") }
