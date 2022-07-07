@@ -99,13 +99,13 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-jacocoTestReport {
-    reports {
-        xml.required = true
-        csv.required = false
-        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
-    }
-}
+//jacocoTestReport {
+//    reports {
+//        xml.required = true
+//        csv.required = false
+//        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+//    }
+//}
 
 jacoco {
     toolVersion = "0.8.6"
