@@ -62,6 +62,7 @@ pipeline {
                     bat "${SONARSCANNER_HOME}/bin/sonar-scanner \
                     -D sonar.projectKey=sonarqube_school_test \
                     -D sonar.java.binaries=** \
+                    -D sonar.inclusions=**/app/**/*,**/api/**/*,**/billing/**/*,**/widgets/**/* \
                     -D sonar.host.url=http://10.168.10.52:9000/"
                 }
             }
