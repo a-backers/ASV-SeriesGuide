@@ -67,14 +67,14 @@ tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
     }
 }
 
-//tasks.withType<JacocoReport> {
-//    reports {
-//        xml.required.set(true)
-//        csv.required.set(false)
-//        html.required.set(true)
-//        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
-//    }
-//}
+tasks.withType<JacocoReport> {
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.required.set(true)
+        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
+    }
+}
 
 nexusPublishing {
     packageGroup.set("com.uwetrottmann")
@@ -97,9 +97,6 @@ tasks.register("clean", Delete::class) {
 tasks.wrapper {
     //noinspection UnnecessaryQualifiedReference
     distributionType = Wrapper.DistributionType.ALL
-}
-
-tasks.jacocoTestReport {
 }
 
 //jacocoTestReport {
