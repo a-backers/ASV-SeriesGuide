@@ -99,15 +99,6 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-tasks {
-   getByName<jacocoReport>("jacocoTestReport") {
-      reports {
-          xml.isEnabled = true
-          html.isEnabled = true
-      }
-   }
-}
-
 jacoco {
     toolVersion = "0.8.6"
     reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
