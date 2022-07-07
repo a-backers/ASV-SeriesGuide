@@ -66,14 +66,14 @@ tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
     }
 }
 
-tasks.withType<JacocoReport> {
-    reports {
-        xml.required.set(true)
-        csv.required.set(false)
-        html.required.set(true)
-        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
-    }
-}
+//tasks.withType<JacocoReport> {
+//    reports {
+//        xml.required.set(true)
+//        csv.required.set(false)
+//        html.required.set(true)
+//        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
+//    }
+//}
 
 nexusPublishing {
     packageGroup.set("com.uwetrottmann")
@@ -98,12 +98,16 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-tasks.test {
-    finalizedBy(tasks.jacocoTestReport)
+test {
+    finalizedBy jacocoTestReport
 }
 
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
 }
 
 jacoco {
