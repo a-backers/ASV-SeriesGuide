@@ -7,6 +7,7 @@ plugins {
     
     // Coverage in kotlin dsl style
     jacoco
+    id("org.sonarqube") version "3.4.0.2513"
 }
 
 buildscript {
@@ -51,6 +52,7 @@ buildscript {
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.8.1")
         // Code Coverage with JaCoCo
         classpath("org.jacoco:org.jacoco.core:0.8.7")
+        classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.4.0.2513")
     }
 }
 
