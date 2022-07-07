@@ -41,7 +41,8 @@ pipeline {
         
         stage('Test Coverage') {
             steps {
-                junit '*/build/test-results/testPureDebugUnitTest/*.xml'
+//                junit '*/build/test-results/testPureDebugUnitTest/*.xml'
+                junit '*/build/test-results/**.xml'
                 jacoco(
                     execPattern: '**/build/jacoco/**.exec'
                 )
