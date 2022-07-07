@@ -50,7 +50,7 @@ buildscript {
         classpath("com.google.gms:google-services:4.3.10")
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.8.1")
         // Code Coverage with JaCoCo
-        classpath("org.jacoco:org.jacoco.core:0.8.6")
+        classpath("org.jacoco:org.jacoco.core:0.8.7")
     }
 }
 
@@ -100,6 +100,6 @@ tasks.wrapper {
 }
 
 jacoco {
-    toolVersion = "0.8.6"
+    toolVersion = "0.8.7"
     reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
 }
