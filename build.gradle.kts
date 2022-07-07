@@ -5,8 +5,8 @@ plugins {
     // https://github.com/gradle-nexus/publish-plugin/releases
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0" // api
     
-    // Coverage
-    id("jacoco")
+    // Coverage in kotlin dsl style
+    jacoco
 }
 
 buildscript {
@@ -60,6 +60,7 @@ fun isNonStable(version: String): Boolean {
     val isStable = stableKeyword || regex.matches(version)
     return isStable.not()
 }
+
 tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask> {
     rejectVersionIf {
         isNonStable(candidate.version)
@@ -107,5 +108,5 @@ jacocoTestReport {
 
 jacoco {
     toolVersion = "0.8.6"
-    // reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
+    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
 }
