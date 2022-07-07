@@ -10,6 +10,8 @@ plugins {
     id("org.sonarqube") version "3.4.0.2513"
 }
 
+apply(plugin = "jacoco")
+
 buildscript {
     val sgCompileSdk by extra(31) // Android 12 (S)
     val sgMinSdk by extra(21) // Android 5 (L)
