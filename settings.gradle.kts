@@ -14,8 +14,11 @@ dependencyResolutionManagement {
         google()
 //        mavenCentral()
         jcenter()
-        // For debugdrawer.
-        maven { url = uri("https://jitpack.io") }
+        // For debugdrawer and sonarqube
+        maven {
+            url = uri("https://jitpack.io")
+            url = uri("https://plugins.gradle.org/m2/")
+        }
     }
 }
 
