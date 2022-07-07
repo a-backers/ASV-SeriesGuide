@@ -71,6 +71,7 @@ tasks.withType<JacocoReport> {
         xml.required.set(true)
         csv.required.set(false)
         html.required.set(true)
+        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
     }
 }
 
@@ -97,7 +98,15 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+}
+
 jacoco {
     toolVersion = "0.8.6"
-    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
+    // reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
 }
