@@ -98,12 +98,7 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-test {
-    finalizedBy jacocoTestReport
-}
-
 jacocoTestReport {
-    dependsOn test
     reports {
         xml.required = true
         csv.required = false
