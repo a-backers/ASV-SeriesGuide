@@ -98,7 +98,7 @@ tasks.wrapper {
 //    toolVersion = "0.8.8"
 //}
 
-getByName(DEBUG) {
+getByName(debug) {
    flavour
     isTestCoverageEnabled = true
 }
