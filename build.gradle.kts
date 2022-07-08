@@ -109,7 +109,7 @@ fun JacocoReportsContainer.reports() {
     csv.isEnabled = false
     html.isEnabled = true
     xml.destination = file("${buildDir}/reports/jacoco/jacocoTestReport.xml")
-    html.destination = file(${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml")
+    html.destination = file("${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml")
 }
 
 if (tasks.findByName("jacocoCustTestReport") == null) {
