@@ -94,7 +94,8 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-
+jacocoTestReport {
+}
 
 //jacoco {
 //    toolVersion = "0.8.8"
