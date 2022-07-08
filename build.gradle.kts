@@ -98,8 +98,30 @@ tasks.wrapper {
 //    toolVersion = "0.8.8"
 //}
 
-getByName(debug) {
-   flavour
-    isTestCoverageEnabled = true
+tasks.withType<Test> {
+    configure<JacocoTaskExtension> {
+        isIncludeNoLocationClasses = true
+    }
 }
 
+fun JacocoReportsContainer.reports() {
+    xml.isEnabled = true
+    csv.isEnabled = false
+    html.isEnabled = true
+    xml.destination = file("${buildDir}/reports/jacoco/jacocoTestReport.xml")
+    html.destination = file(${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml")
+}
+
+if (tasks.findByName("jacocoCustTestReport") == null) {
+    tasks.register<jacocoReport>("jacocoCustTestReport") {
+        group = BuildTaskGroups.VERIFICATION
+        reports {
+            reports()
+        }
+        // sourceDirectories.setFrom(" ")
+        // classDirectories.setFrom("")
+        executionData.setFrom("jacoco/testDebugUnitTest.exec")
+    }
+}
+
+                            
