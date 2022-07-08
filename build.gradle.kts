@@ -120,7 +120,7 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
         }
         // sourceDirectories.setFrom(" ")
         // classDirectories.setFrom("")
-        executionData.setFrom("jacoco/testPureDebugUnitTest.exec")
+        executionData.setFrom("build/jacoco/testPureDebugUnitTest.exec")
         enabled = true
     }
 }
@@ -128,6 +128,7 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
 tasks.jacocoTestReport {
     reports {
         xml.required.set(true)
+        xml.destination = file("${buildDir}/reports/jacoco/jacocoTestReport.xml")
         csv.required.set(false)
         html.required.set(true)
         html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
