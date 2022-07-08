@@ -113,7 +113,7 @@ fun JacocoReportsContainer.reports() {
 }
 
 if (tasks.findByName("jacocoCustTestReport") == null) {
-    tasks.register<jacocoReport>("jacocoCustTestReport") {
+    tasks.register<JacocoReport>("jacocoCustTestReport") {
         group = BuildTaskGroups.VERIFICATION
         reports {
             reports()
