@@ -69,14 +69,14 @@ tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
     }
 }
 
-//tasks.withType<jacocoReport> {
-//    reports {
-//        xml.required.set(true)
-//        csv.required.set(false)
-//        html.required.set(true)
-//        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
-//    }
-//}
+tasks.withType<jacocoReport> {
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.required.set(true)
+        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
+    }
+}
 
 nexusPublishing {
     packageGroup.set("com.uwetrottmann")
@@ -99,14 +99,6 @@ nexusPublishing {
 tasks.wrapper {
     //noinspection UnnecessaryQualifiedReference
     distributionType = Wrapper.DistributionType.ALL
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        csv.enabled = false
-        html.enabled = true
-    }
 }
 
 jacoco {
