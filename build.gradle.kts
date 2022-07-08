@@ -97,7 +97,7 @@ tasks.wrapper {
 // vanuit gradle documentatie  "JacocoPlugInExtension"
 jacoco {
     toolVersion = "0.8.8"
-    reportsDirectory = layout.buildDirectory.dir("\\jacocoCust")
+    reportsDirectory.set(layout.buildDirectory.dir("${buildDir}\\jacocoCust"))
 }
 
 tasks.withType<Test> {
