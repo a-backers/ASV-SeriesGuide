@@ -134,6 +134,6 @@ tasks.jacocoTestReport {
         html.required.set(true)
         html.outputLocation.set(layout.buildDirectory.dir("\\jacocoHtml"))
     }
-    executionData.setFrom(fileTree(projectDir) { include ("${projectDir}\\app\\build\\jacoco\\testPureDebugUnitTest.exec") })
-    // println("\n\n ${projectDir}\\app\\build\\jacoco\\testPureDebugUnitTest.exec \n\n")
+    executionData.setFrom(fileTree(project.buildDir) { include ("${buildDir}\\jacoco\\testPureDebugUnitTest.exec") })
+    println("\n\n ${buildDir}\\jacoco\\testPureDebugUnitTest.exec \n\n")
 }
