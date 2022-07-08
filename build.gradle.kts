@@ -124,4 +124,11 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
     }
 }
 
-                            
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.required.set(true)
+        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
+    }
+}
