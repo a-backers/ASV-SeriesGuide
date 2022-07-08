@@ -52,10 +52,10 @@ buildscript {
         classpath("com.google.gms:google-services:4.3.10")
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.8.1")
         // Code Coverage with JaCoCo
-        classpath("org.jacoco:org.jacoco.core:0.8.8")
-        classpath("org.jacoco:org.jacoco.report:0.8.8")
-        classpath("org.jacoco:org.jacoco.agent:0.8.8")
-        classpath("org.jacoco:org.jacoco.cli:0.8.8")
+//        classpath("org.jacoco:org.jacoco.core:0.8.8")
+//        classpath("org.jacoco:org.jacoco.report:0.8.8")
+//        classpath("org.jacoco:org.jacoco.agent:0.8.8")
+//        classpath("org.jacoco:org.jacoco.cli:0.8.8")
         classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.4.0.2513")
     }
 }
@@ -107,5 +107,5 @@ tasks.wrapper {
 
 jacoco {
     toolVersion = "0.8.8"
-//    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
+    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
 }
