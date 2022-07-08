@@ -94,9 +94,11 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-//jacoco {
-//    toolVersion = "0.8.8"
-//}
+// vanuit gradle documentatie  "JacocoPlugInExtension"
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = "${project.reporting.baseDir}/jacoco/Cust"
+}
 
 tasks.withType<Test> {
     configure<JacocoTaskExtension> {
@@ -120,8 +122,8 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
         }
         // sourceDirectories.setFrom(" ")
         // classDirectories.setFrom("")
-        executionData.setFrom("build/jacoco/testPureDebugUnitTest.exec")
-        enabled = true
+        executionData("build/jacoco/testPureDebugUnitTest.exec")
+        onlyIf(true)
     }
 }
 
@@ -133,6 +135,6 @@ tasks.jacocoTestReport {
         html.required.set(true)
         html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
     }
-    enabled = true
+    onlyIf(true)
     executionData.setFrom("build/jacoco/testPureDebugUnitTest.exec")
 }
