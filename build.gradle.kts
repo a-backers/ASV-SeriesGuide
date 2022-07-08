@@ -120,7 +120,7 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
         }
         // sourceDirectories.setFrom(" ")
         // classDirectories.setFrom("")
-        executionData.setFrom("jacoco/testDebugUnitTest.exec")
+        executionData.setFrom("jacoco/testPureDebugUnitTest.exec")
     }
 }
 
