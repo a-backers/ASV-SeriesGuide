@@ -6,7 +6,9 @@ plugins {
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0" // api
     // Coverage in kotlin dsl style
     id("java")
+    id("maven")
     id("jacoco")
+    // Probeersel
     id("org.sonarqube") version "3.4.0.2513"
 }
 
@@ -52,6 +54,7 @@ buildscript {
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.8.1")
         // Code Coverage with JaCoCo
 //        classpath("org.jacoco:org.jacoco.core:0.8.8")
+        // Probeersel of maven plugins werken
         classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.4.0.2513")
     }
 }
