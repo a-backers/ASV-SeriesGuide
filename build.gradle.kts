@@ -52,7 +52,7 @@ buildscript {
         classpath("com.google.gms:google-services:4.3.10")
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.8.1")
         // Code Coverage with JaCoCo
-//        classpath("org.jacoco:org.jacoco.core:0.8.8")
+        classpath("org.jacoco:org.jacoco.core:0.8.8")
         // Probeersel of maven plugins werken
         classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.4.0.2513")
     }
@@ -94,9 +94,12 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-jacocoTestReport {
-}
-
 //jacoco {
 //    toolVersion = "0.8.8"
 //}
+
+getByName(DEBUG) {
+   flavour
+    isTestCoverageEnabled = true
+}
+
