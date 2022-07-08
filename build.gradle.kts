@@ -134,4 +134,5 @@ tasks.jacocoTestReport {
         html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
     }
     enabled = true
+    executionData.setFrom("build/jacoco/testPureDebugUnitTest.exec")
 }
