@@ -122,7 +122,7 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
         }
         // sourceDirectories.setFrom(" ")
         // classDirectories.setFrom("")
-        executionData.setFrom(fileTree(project.buildDir) { include ("${buildDir}\\jacoco\\testPureDebugUnitTest.exec")
+        executionData.setFrom(fileTree(project.buildDir) { include ("${buildDir}\\jacoco\\testPureDebugUnitTest.exec") })
     }
 }
 
