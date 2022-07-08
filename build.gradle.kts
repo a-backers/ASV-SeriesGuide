@@ -5,11 +5,12 @@ plugins {
     // https://github.com/gradle-nexus/publish-plugin/releases
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0" // api
     // Coverage in kotlin dsl style
+    id("java")
     id("jacoco")
     id("org.sonarqube") version "3.4.0.2513"
 }
 
-apply(plugin = "jacoco")
+//apply(plugin = "jacoco")
 
 buildscript {
     val sgCompileSdk by extra(31) // Android 12 (S)
