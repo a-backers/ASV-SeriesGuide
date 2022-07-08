@@ -6,7 +6,6 @@ plugins {
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0" // api
     // Coverage in kotlin dsl style
     id("java")
-    id("maven")
     id("jacoco")
     // Probeersel
     id("org.sonarqube") version "3.4.0.2513"
@@ -94,6 +93,8 @@ tasks.wrapper {
     //noinspection UnnecessaryQualifiedReference
     distributionType = Wrapper.DistributionType.ALL
 }
+
+
 
 //jacoco {
 //    toolVersion = "0.8.8"
