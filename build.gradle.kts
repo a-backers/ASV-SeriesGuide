@@ -97,7 +97,7 @@ tasks.wrapper {
 // vanuit gradle documentatie  "JacocoPlugInExtension"
 jacoco {
     toolVersion = "0.8.8"
-    reportsDirectory = layout.buildDirectory.dir("/jacocoCust"))
+    reportsDirectory = layout.buildDirectory.dir("\\jacocoCust")
 }
 
 tasks.withType<Test> {
@@ -111,7 +111,7 @@ fun JacocoReportsContainer.reports() {
     csv.isEnabled = false
     html.isEnabled = true
     xml.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport.xml")
-    html.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport\\jacocoTestReport.xml")
+    html.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport\\jacocoTestReport.html")
 }
 
 if (tasks.findByName("jacocoCustTestReport") == null) {
@@ -122,7 +122,7 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
         }
         // sourceDirectories.setFrom(" ")
         // classDirectories.setFrom("")
-        executionData.setFrom(fileTree(projectDir) { include ("build\\jacoco\\testPureDebugUnitTest.exec")
+        executionData.setFrom(fileTree(project.buildDir) { include ("${buildDir}\\jacoco\\testPureDebugUnitTest.exec")
     }
 }
 
