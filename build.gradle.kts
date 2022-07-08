@@ -121,6 +121,7 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
         // sourceDirectories.setFrom(" ")
         // classDirectories.setFrom("")
         executionData.setFrom("jacoco/testPureDebugUnitTest.exec")
+        enabled = true
     }
 }
 
@@ -131,4 +132,5 @@ tasks.jacocoTestReport {
         html.required.set(true)
         html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
     }
+    enabled = true
 }
