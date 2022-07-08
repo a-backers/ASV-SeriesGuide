@@ -97,7 +97,7 @@ tasks.wrapper {
 // vanuit gradle documentatie  "JacocoPlugInExtension"
 jacoco {
     toolVersion = "0.8.8"
-    reportsDirectory.set(layout.buildDirectory.dir("${buildDir}/jacocoCust"))
+    reportsDirectory = layout.buildDirectory.dir("/jacocoCust"))
 }
 
 tasks.withType<Test> {
@@ -110,8 +110,8 @@ fun JacocoReportsContainer.reports() {
     xml.isEnabled = true
     csv.isEnabled = false
     html.isEnabled = true
-    xml.destination = file("${buildDir}/reports/jacoco/jacocoTestReport.xml")
-    html.destination = file("${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml")
+    xml.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport.xml")
+    html.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport\\jacocoTestReport.xml")
 }
 
 if (tasks.findByName("jacocoCustTestReport") == null) {
@@ -122,17 +122,18 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
         }
         // sourceDirectories.setFrom(" ")
         // classDirectories.setFrom("")
-        executionData("build/jacoco/testPureDebugUnitTest.exec")
+        executionData.setFrom(fileTree(projectDir) { include ("build\\jacoco\\testPureDebugUnitTest.exec")
     }
 }
 
 tasks.jacocoTestReport {
     reports {
         xml.required.set(true)
-        xml.destination.set(layout.buildDirectory.dir("/reports/jacoco/jacocoTestReport.xml"))
+        xml.destination.set(layout.buildDirectory.dir("\\reports\\jacoco\\jacocoTestReport.xml"))
         csv.required.set(false)
         html.required.set(true)
-        html.outputLocation.set(layout.buildDirectory.dir("/jacocoHtml"))
+        html.outputLocation.set(layout.buildDirectory.dir("\\jacocoHtml"))
     }
-    executionData.setFrom(fileTree(project.buildDir) { include ("${buildDir}/jacoco/testPureDebugUnitTest.exec") })
+    executionData.setFrom(fileTree(projectDir) { include ("${projectDir}\\app\\build\\jacoco\\testPureDebugUnitTest.exec") })
+    // println("\n\n ${projectDir}\\app\\build\\jacoco\\testPureDebugUnitTest.exec \n\n")
 }
