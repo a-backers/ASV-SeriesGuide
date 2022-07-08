@@ -129,7 +129,7 @@ if (tasks.findByName("jacocoCustTestReport") == null) {
 tasks.jacocoTestReport {
     reports {
         xml.required.set(true)
-        xml.destination.set(layout.buildDirectory.dir("\\reports\\jacoco\\jacocoTestReport.xml"))
+        xml.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport.xml")
         csv.required.set(false)
         html.required.set(true)
         html.outputLocation.set(layout.buildDirectory.dir("\\jacocoHtml"))
