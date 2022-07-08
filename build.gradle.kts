@@ -106,25 +106,25 @@ tasks.withType<Test> {
     }
 }
 
-fun JacocoReportsContainer.reports() {
-    xml.isEnabled = true
-    csv.isEnabled = false
-    html.isEnabled = true
-    xml.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport.xml")
-    html.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport\\jacocoTestReport.html")
-}
+//fun JacocoReportsContainer.reports() {
+//    xml.isEnabled = true
+//    csv.isEnabled = false
+//    html.isEnabled = true
+//    xml.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport.xml")
+//    html.destination = file("${buildDir}\\reports\\jacoco\\jacocoTestReport\\jacocoTestReport.html")
+//}
 
-if (tasks.findByName("jacocoCustTestReport") == null) {
-    tasks.register<JacocoReport>("jacocoCustTestReport") {
-        group = "Verification"
-        reports {
-            reports()
-        }
-        // sourceDirectories.setFrom(" ")
-        // classDirectories.setFrom("")
-        executionData.setFrom(fileTree(project.buildDir) { include ("${buildDir}\\jacoco\\testPureDebugUnitTest.exec") })
-    }
-}
+//if (tasks.findByName("jacocoCustTestReport") == null) {
+//    tasks.register<JacocoReport>("jacocoCustTestReport") {
+//        group = "Verification"
+//        reports {
+//            reports()
+//        }
+//        // sourceDirectories.setFrom(" ")
+//        // classDirectories.setFrom("")
+//        executionData.setFrom(fileTree(project.buildDir) { include ("${buildDir}\\jacoco\\testPureDebugUnitTest.exec") })
+//    }
+//}
 
 tasks.jacocoTestReport {
     reports {
@@ -134,6 +134,6 @@ tasks.jacocoTestReport {
         html.required.set(true)
         html.outputLocation.set(layout.buildDirectory.dir("\\jacocoHtml"))
     }
-    executionData.setFrom(fileTree(project.buildDir) { include ("${buildDir}\\jacoco\\testPureDebugUnitTest.exec") })
-    println("\n\n ${buildDir}\\jacoco\\testPureDebugUnitTest.exec \n\n")
+    executionData.setFrom(fileTree(projectDir) { include ("${projectDir}\\app\\build\\jacoco\\testPureDebugUnitTest.exec") })
+    println("\n\n ${projectDir}\\app\\build\\jacoco\\testPureDebugUnitTest.exec \n\n")
 }
