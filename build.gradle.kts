@@ -10,8 +10,6 @@ plugins {
     id("org.sonarqube") version "3.4.0.2513"
 }
 
-//apply(plugin = "jacoco")
-
 buildscript {
     val sgCompileSdk by extra(31) // Android 12 (S)
     val sgMinSdk by extra(21) // Android 5 (L)
@@ -53,10 +51,7 @@ buildscript {
         classpath("com.google.gms:google-services:4.3.10")
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.8.1")
         // Code Coverage with JaCoCo
-//        classpath("org.jacoco:org.jacoco.core:0.8.8")
-//        classpath("org.jacoco:org.jacoco.report:0.8.8")
-//        classpath("org.jacoco:org.jacoco.agent:0.8.8")
-//        classpath("org.jacoco:org.jacoco.cli:0.8.8")
+        classpath("org.jacoco:org.jacoco.core:0.8.8")
         classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.4.0.2513")
     }
 }
@@ -106,7 +101,14 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        csv.enabled = false
+        html.enabled = true
+    }
+}
+
 jacoco {
     toolVersion = "0.8.8"
-    reportsDirectory.set(layout.buildDirectory.dir("reports/jacoco/test/"))
 }
