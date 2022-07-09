@@ -64,7 +64,7 @@ pipeline {
                     -D sonar.projectKey=sonarqube_school_test \
                     -D sonar.java.binaries=** \
                     -D sonar.inclusions=**/app/**/*,**/api/**/*,**/billing/**/*,**/widgets/**/* \
-                    -D sonar.coverage.jacoco.xmlReportPaths=**/jacoco/test/* \
+                    -D sonar.coverage.jacoco.xmlReportPaths=$WORKSPACE/build/reports/jacoco/jacocoTestReport.xml \
                     -D sonar.host.url=http://10.168.10.52:9000/"
                 }
             }
