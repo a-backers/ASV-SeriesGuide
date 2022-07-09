@@ -97,7 +97,7 @@ tasks.wrapper {
 // vanuit gradle documentatie  "JacocoPlugInExtension"
 jacoco {
     toolVersion = "0.8.8"
-    reportsDirectory.set(layout.buildDirectory.dir("${buildDir}\\jacocoCust"))
+//    reportsDirectory.set(layout.buildDirectory.dir("${buildDir}\\jacocoCust"))
 }
 
 tasks.withType<Test> {
@@ -134,6 +134,16 @@ tasks.jacocoTestReport {
         html.required.set(true)
         html.outputLocation.set(layout.buildDirectory.dir("\\jacocoHtml"))
     }
-    executionData.setFrom(fileTree(projectDir) { include ("${projectDir}\\app\\build\\jacoco\\testPureDebugUnitTest.exec") })
-    println("\n\n ${projectDir}\\app\\build\\jacoco\\testPureDebugUnitTest.exec \n\n")
+    sourceDirectories.setFrom(fileTree(projectDir) {
+        include (
+            "**\\src\\main\\java\\**",
+            "**\\src\\main\\kotlin\\**",
+            "**\\src\\debug\\java\\**",
+            "**\\src\\debug\\kotlin\\**")
+    })
+    classDirectories.setFrom(fileTree(projectDir) { 
+        include ("**\\classes\\**")
+    })
+    executionData.setFrom(fileTree(projectDir) { include ("app\\build\\jacoco\\testPureDebugUnitTest.exec") })
+//    println("\n\n ${projectDir}\\app\\build\\jacoco\\testPureDebugUnitTest.exec \n\n")
 }
