@@ -8,11 +8,11 @@ pipeline {
         }
 
     stages {
-        stage('Build Debug') {
+        stage('Build Pure Debug') {
             steps {
                 echo 'Clean UP'
                 bat "gradlew widgets:clean billing:clean api:clean app:clean Custclean"
-                echo 'Build Pure Debug'
+                echo 'Assemble Debug'
                 bat "gradlew widgets:assembleDebug api:assembleDebug billing:assembleDebug app:assemblePureDebug"
             }
         }
@@ -40,15 +40,11 @@ pipeline {
         
         stage('Test Pure Coverage reports') {
             steps {
-//                junit '*/build/test-results/testPureDebugUnitTest/*.xml'
-//                junit '**/build/test-results/**/*.xml'
-                jacoco(
-                    execPattern: '**/build/jacoco/**.exec'
-                )
-                bat "gradlew jacocoTestReport --info"
-//                step( publishCoverage(
-//                    adapters: [jacocoAdapter('build/reports/jacoco/test/jacocoTestReport.xml')] )
+                // Check of jacoco plugin wel werkt op de .exec file
+//                jacoco(
+//                    execPattern: '**/build/jacoco/**.exec'
 //                )
+                bat "gradlew jacocoTestReport --info"
             }
         }
         
@@ -70,7 +66,7 @@ pipeline {
             }
         }
 
-        stage('Sonar Quality Gate') {
+        stage('SonarQube Quality Gate') {
             steps {
                 timeout(time: 2, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
@@ -78,15 +74,17 @@ pipeline {
             }
         }
 
-        stage('Build Release') {
+        stage('Build Pure Release') {
             steps {
-                echo 'Build Pure Release'
+                echo 'Assemble Pure Release'
+                bat "gradlew widgets:assembleRelease api:assembleRelease billing:assembleRelease app:assemblePureRelease"
             }
         }
         
-        stage('Deploy') {
+        stage('Deploy Pure') {
             steps {
                 echo 'Deploy Pure Release'
+                echo 'Voorbeeld step voor de deploy'
             }
         }
     }
