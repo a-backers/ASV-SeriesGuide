@@ -35,7 +35,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'test'
-                bat "gradlew app:testPureDebugUnitTest jacocoTestReport"
+                bat "gradlew app:testPureDebugUnitTest"
             }
         }
         
@@ -46,6 +46,7 @@ pipeline {
                 jacoco(
                     execPattern: '**/build/jacoco/**.exec'
                 )
+                bat "gradlew jacocoTestReport --info"
                 step( publishCoverage(
                     adapters: [jacocoAdapter('build/reports/jacoco/test/jacocoTestReport.xml')] )
                 )
