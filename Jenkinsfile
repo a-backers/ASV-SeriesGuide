@@ -10,17 +10,16 @@ pipeline {
     stages {
         stage('Build Debug') {
             steps {
-                echo 'Cleaning....'
-                bat "gradlew widgets:clean billing:clean api:clean app:clean"
-                echo 'Building....'
+                echo 'Clean UP'
+                bat "gradlew widgets:clean billing:clean api:clean app:clean Custclean"
+                echo 'Build Pure Debug'
                 bat "gradlew widgets:assembleDebug api:assembleDebug billing:assembleDebug app:assemblePureDebug"
             }
         }
         stage('Build Test') {
             steps {
-                echo 'Build Test with Coverage'
+                echo 'Build Pure Test with Coverage'
                 bat "set"
-                // bat "gradlew app:assembleAndroidTest"
                 bat "gradlew widgets:generateDebugSources widgets:createMockableJar widgets:generateDebugAndroidTestSources \
                      widgets:compileDebugUnitTestSources widgets:compileDebugAndroidTestSources widgets:compileDebugSources \
                      billing:generateDebugSources billing:createMockableJar billing:generateDebugAndroidTestSources \
@@ -34,12 +33,12 @@ pipeline {
         
         stage('Test') {
             steps {
-                echo 'test'
+                echo 'Test Pure'
                 bat "gradlew app:testPureDebugUnitTest"
             }
         }
         
-        stage('Test Coverage') {
+        stage('Test Pure Coverage reports') {
             steps {
 //                junit '*/build/test-results/testPureDebugUnitTest/*.xml'
                 junit '**/build/test-results/**/*.xml'
@@ -78,9 +77,15 @@ pipeline {
             }
         }
 
+        stage('Build Release') {
+            steps {
+                echo 'Build Pure Release'
+            }
+        }
+        
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploy Pure Release'
             }
         }
     }
