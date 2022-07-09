@@ -41,14 +41,14 @@ pipeline {
         stage('Test Pure Coverage reports') {
             steps {
 //                junit '*/build/test-results/testPureDebugUnitTest/*.xml'
-                junit '**/build/test-results/**/*.xml'
+//                junit '**/build/test-results/**/*.xml'
                 jacoco(
                     execPattern: '**/build/jacoco/**.exec'
                 )
                 bat "gradlew jacocoTestReport --info"
-                step( publishCoverage(
-                    adapters: [jacocoAdapter('build/reports/jacoco/test/jacocoTestReport.xml')] )
-                )
+//                step( publishCoverage(
+//                    adapters: [jacocoAdapter('build/reports/jacoco/test/jacocoTestReport.xml')] )
+//                )
             }
         }
         
