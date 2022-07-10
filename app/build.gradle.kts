@@ -6,7 +6,8 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("com.google.cloud.tools.endpoints-framework-client")
-    jacoco
+    id("java")
+    id("jacoco")
 }
 
 if (project.file("google-services.json").exists()) {
