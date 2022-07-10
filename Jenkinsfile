@@ -77,14 +77,16 @@ pipeline {
         stage('Build Pure Release') {
             steps {
                 echo 'Assemble Pure Release'
-                bat "gradlew widgets:assembleRelease api:assembleRelease billing:assembleRelease app:assemblePureRelease"
+                echo 'Can not compile release. Need real crashlytics/GoogleServices configuration'
+                // bat "gradlew widgets:assembleRelease api:assembleRelease billing:assembleRelease app:assemblePureRelease"
             }
         }
         
         stage('Deploy Pure') {
             steps {
                 echo 'Deploy Pure Release'
-                echo 'Voorbeeld step voor de deploy'
+                echo 'Can not deploy APK. Need real-life application ID to make this work'
+                // bat "gradlew publish"
             }
         }
     }
