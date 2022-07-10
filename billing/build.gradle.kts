@@ -2,7 +2,8 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
-    jacoco
+    id("java")
+    id("jacoco")
 }
 
 val sgCompileSdk: Int by rootProject.extra
