@@ -2,7 +2,8 @@ plugins {
     id("com.android.library")
     id("maven-publish")
     id("signing")
-    jacoco
+    id("java")
+    id("jacoco")
 }
 
 group = "com.uwetrottmann.seriesguide"
